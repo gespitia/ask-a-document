@@ -1,0 +1,1 @@
+{"name":"ask-a-document","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite","build":"tsc && vite build","test":"node --test tests/retrieval.test.js","preview":"vite preview"},"devDependencies":{"typescript":"^5.7.2","vite":"^6.1.0"}}
