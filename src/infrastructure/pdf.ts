@@ -1,0 +1,4 @@
+import{pdfjs}from'pdfjs-dist';
+import workerUrl from'pdfjs-dist/build/pdf.worker.min.mjs?url';
+pdfjs.GlobalWorkerOptions.workerSrc=workerUrl;
+export async function extractTextFromPdf(file:File):Promise<string>{const data=await file.arrayBuffer();const doc=await pdfjs.getDocument({data}).promise;const pages:string[]=[];for(let pageNumber=1;pageNumber<=doc.numPages;pageNumber++){const page=await doc.getPage(pageNumber);const content=await page.getTextContent();const text=content.items.map((item:any)=>'str'in item?item.str:'').join(' ').replace(/\s+/g,' ').trim();if(text)pages.push(text)}return pages.join('\n\n')}
