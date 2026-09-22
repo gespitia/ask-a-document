@@ -1,3 +1,4 @@
+import './demo-bridge';
 import'./style.css';
 import{extractTextFromPdf}from'./infrastructure/pdf';import{addTextDocument,ask,createWorkspace,type WorkspaceState}from'./application/ask';
 let state:WorkspaceState=createWorkspace();let last:any=ask('How is tenant isolation enforced?',state);let history:{q:string;r:any}[]=[];let uploadStatus='';const root=document.querySelector('#app')!;
