@@ -1,0 +1,1 @@
+import type {Hit} from './retrieval'; export type Answer={text:string;sources:string[]}; export function groundedAnswer(hits:Hit[]):Answer{if(!hits.length)return{text:'No relevant passage was retrieved. Try a more specific question.',sources:[]};const lead=hits[0].chunk;return{text:'The retrieved evidence indicates that '+lead.text,sources:hits.map(h=>h.chunk.id)};}
